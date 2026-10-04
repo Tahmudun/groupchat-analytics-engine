@@ -1,0 +1,5 @@
+{
+  "slug": "binge-club",
+  "aliasBlocklist": [],
+  "_note": "Synthetic demo chat (pnpm wrapped synth). The blocklist is deliberately empty so `synth eval` shows the real resolver's false positives on everyday-word nicknames (\"mayo\", \"abs\", \"leo\", \"dev\") — the same failure mode the real chat's blocklist exists for. Add them here and re-run mentions to see precision recover."
+}

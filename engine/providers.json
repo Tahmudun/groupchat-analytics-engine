@@ -1,0 +1,39 @@
+{
+  "_comment": "Free-tier lane limits \u2014 fill real values from each provider console. dailyTokens/dailyRequests reset at UTC midnight. batchSize = messages per LLM call (cerebras capped low: 8192-token context on free tier).",
+  "mistral": {
+    "enabled": true,
+    "model": "mistral-small-latest",
+    "rpm": 60,
+    "tpm": 500000,
+    "dailyTokens": null,
+    "dailyRequests": null,
+    "batchSize": 12
+  },
+  "gemini": {
+    "enabled": true,
+    "model": "auto",
+    "rpm": 10,
+    "tpm": 250000,
+    "dailyTokens": null,
+    "dailyRequests": 1000,
+    "batchSize": 12
+  },
+  "cerebras": {
+    "enabled": true,
+    "model": "gpt-oss-120b",
+    "rpm": 5,
+    "tpm": 30000,
+    "dailyTokens": 1000000,
+    "dailyRequests": null,
+    "batchSize": 12
+  },
+  "groq": {
+    "enabled": true,
+    "model": "llama-3.1-8b-instant",
+    "rpm": 30,
+    "tpm": 6000,
+    "dailyTokens": 500000,
+    "dailyRequests": 14400,
+    "batchSize": 12
+  }
+}

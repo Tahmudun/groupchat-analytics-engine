@@ -1,0 +1,43 @@
+{
+  "participants": [{ "name": "alice" }, { "name": "bob" }],
+  "_comment": "escapes below are the latin-1-mangled forms of the heart and skull emoji, exactly as raw Instagram exports encode them",
+  "messages": [
+    {
+      "sender_name": "alice",
+      "timestamp_ms": 1700000005000,
+      "content": "I love this â¤",
+      "reactions": [{ "reaction": "ð", "actor": "bob" }]
+    },
+    {
+      "sender_name": "bob",
+      "timestamp_ms": 1700000004000,
+      "photos": [{ "uri": "media/photo1.jpg" }]
+    },
+    {
+      "sender_name": "bob",
+      "timestamp_ms": 1700000003000,
+      "share": { "link": "https://www.instagram.com/reel/xyz/" },
+      "content": "check this"
+    },
+    {
+      "sender_name": "carol",
+      "timestamp_ms": 1700000002000,
+      "content": "carol_handle left the group."
+    },
+    {
+      "sender_name": "dave",
+      "timestamp_ms": 1700000001500,
+      "content": "",
+      "call_duration": 120
+    },
+    {
+      "sender_name": "dave",
+      "timestamp_ms": 1700000001000
+    },
+    {
+      "sender_name": "erin",
+      "timestamp_ms": 1700000000500,
+      "content": "they named the group after me lol"
+    }
+  ]
+}

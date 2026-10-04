@@ -1,0 +1,348 @@
+/* ============================================================
+   FLIX — engine admin (reskin of the retired Wrapped violet).
+   Netflix language: #141414 canvas, #E50914 red, match-green,
+   Bebas Neue display (via next/font --font-display), system-ui
+   body. Every selector below is unchanged from the Wrapped
+   build — only the tokens are re-graded — so the components
+   keep working untouched. Mobile-first; desktop centered column.
+   ============================================================ */
+
+:root {
+  --bg: #141414;
+  --text: #ffffff;
+  --muted: #a3a3a3;
+  --label: #b3b3b3;
+  --kicker: #e50914;
+  --accent-a: #e50914;
+  --accent-b: #b0060f;
+  --accent-c: #ff5c5c;
+  --ok: #46d369;
+  --danger: #ff5c5c;
+  --card: #1b1b1b;
+  --card-raised: #232323;
+  --well: #0d0d0d;
+  --chip-bg: rgba(229, 9, 20, 0.16);
+  --chip-border: rgba(229, 9, 20, 0.5);
+  --grad: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  --grad-ramp: linear-gradient(90deg, var(--accent-b), var(--accent-a), var(--accent-c));
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display-stack: var(--font-display), 'Arial Narrow', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(700px 460px at 85% -10%, rgba(229, 9, 20, 0.18), transparent 62%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+.admin {
+  min-height: 100vh;
+  font: 400 0.9rem/1.55 var(--font);
+  color: var(--text);
+  color-scheme: dark;
+}
+
+/* ---------- header ---------- */
+.admin header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 16px 4px;
+}
+.admin .kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kicker);
+}
+.admin h1 {
+  margin: 2px 0 0;
+  font-family: var(--font-display-stack);
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.chat-picker select {
+  appearance: none;
+  background: var(--card-raised);
+  border: 0;
+  border-radius: 999px;
+  color: #e5e5e5;
+  font: 500 0.8rem var(--font);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+/* ---------- layout ---------- */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- cards ---------- */
+section {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 16px;
+}
+section h2 {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kicker);
+}
+
+/* ---------- stat strip ---------- */
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.strip > div {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.strip dt {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--label);
+}
+.strip dd {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.strip small {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.ok { color: var(--ok); }
+
+/* ---------- controls ---------- */
+button {
+  font: 700 0.78rem var(--font);
+  color: #e5e5e5;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.14); }
+button:disabled { opacity: 0.45; cursor: default; }
+button.primary { background: var(--grad); color: #fff; }
+button.primary:hover:not(:disabled) { background: var(--grad); filter: brightness(1.12); }
+input:not([type='checkbox']), select {
+  background: var(--well);
+  border: 0;
+  border-radius: 10px;
+  color: var(--text);
+  font: 400 0.85rem var(--font);
+  padding: 8px 12px;
+}
+input::placeholder { color: var(--muted); }
+input[type='checkbox'] { accent-color: var(--accent-a); }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.muted { color: var(--muted); font-size: 0.78rem; }
+code { font-family: var(--font-mono); font-size: 0.8em; color: #ff8a8a; }
+
+/* ---------- banners + job lines ---------- */
+.banner { border-radius: 12px; padding: 10px 14px; font-size: 0.82rem; }
+.banner.error { background: rgba(248, 113, 113, 0.12); color: var(--danger); }
+.banner.warn { background: rgba(251, 146, 60, 0.12); color: var(--accent-c); }
+.job { font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; overflow-wrap: anywhere; }
+.job strong { color: var(--text); }
+.job.done strong { color: var(--ok); }
+.job.error { color: var(--danger); }
+
+/* ---------- dropzone ---------- */
+.dropzone {
+  border: 1.5px dashed rgba(229, 9, 20, 0.5);
+  border-radius: 14px;
+  background: var(--well);
+  padding: 26px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.dropzone:hover, .dropzone.drag { border-color: var(--accent-b); color: var(--text); }
+.dropzone.busy { opacity: 0.5; cursor: default; }
+
+/* ---------- members table ---------- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+th {
+  text-align: left;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--label);
+  font-weight: 500;
+  padding: 6px 8px;
+}
+td { padding: 8px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: rgba(255, 255, 255, 0.03); }
+tr.open td { background: rgba(229, 9, 20, 0.1); }
+tr.detail td, tr.detail:hover td { background: var(--well); cursor: default; }
+.who { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+/* ---------- alias chips ---------- */
+.aliases {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 0;
+}
+.aliases li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  color: #ff8a8a;
+}
+.aliases li code { color: inherit; }
+.aliases li button { background: none; padding: 0 2px; color: var(--muted); font-size: 0.8rem; }
+.aliases li button:hover:not(:disabled) { background: none; color: var(--text); }
+.aliases li.muted { background: none; border: 0; }
+
+/* ---------- upload progress ---------- */
+.progress .name {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+.progress .name b { font-weight: 600; }
+.progress .name span { color: var(--muted); font-size: 0.75rem; }
+.pbar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--well);
+  overflow: hidden;
+}
+.pbar .fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--grad-ramp);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+  transition: width 0.4s ease;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.progress .counts {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.progress .counts b { color: var(--text); font-weight: 600; }
+.steps { display: flex; gap: 6px; margin-top: 10px; }
+.step {
+  flex: 1;
+  text-align: center;
+  font-size: 0.6rem;
+  padding: 5px 0;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.step.done { color: var(--ok); }
+.step.now {
+  background: linear-gradient(90deg, rgba(229, 9, 20, 0.45), rgba(255, 92, 92, 0.4));
+  color: #fff;
+}
+
+/* ---------- merge members ---------- */
+h3.sub {
+  margin: 16px 0 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.merge-suggestions, .merge-matches, .merge-selection ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.merge-suggestions li, .merge-selection li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.84rem;
+}
+.merge-matches li button {
+  width: 100%;
+  text-align: left;
+  font-size: 0.84rem;
+}
+.merge-selection { margin-top: 10px; }
+.merge-selection li label { display: flex; align-items: center; gap: 8px; }
+.merge-selection li button.x {
+  background: none;
+  border: 0;
+  color: var(--danger);
+  font-size: 1.1rem;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.merge-preview { margin-top: 12px; }
+.merge-preview ul { margin: 8px 0; padding-left: 18px; }
+.merge-preview li { margin: 2px 0; }
+.merge-preview button.primary { margin-top: 8px; }

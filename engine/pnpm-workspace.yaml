@@ -1,0 +1,10 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+# 2026-10-02 security: Next 15.5 pins vulnerable transitive copies of these
+# (pnpm audit: postcss path traversal / file read, nanoid infinite loop, sharp
+# libvips/libheif CVEs). Lifted to the patched releases within each line.
+overrides:
+  postcss: ^8.5.23
+  nanoid: ^3.3.18
+  sharp: ^0.35.4

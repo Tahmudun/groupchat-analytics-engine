@@ -1,0 +1,36 @@
+{
+  "name": "groupchat-wrapped-engine",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "wrapped": "tsx cli/wrapped.ts",
+    "typecheck": "tsc --noEmit",
+    "verify:bootstrap": "tsx scripts/verify-bootstrap.ts",
+    "verify:parity": "tsx scripts/verify-parity.ts"
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.0.2",
+    "adm-zip": "^0.6.1",
+    "commander": "^13.0.0",
+    "dotenv": "^16.4.0",
+    "next": "^15.5.27",
+    "postgres": "^3.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.185.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/three": "^0.185.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
